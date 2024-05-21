@@ -2,8 +2,13 @@ const Y_AXIS = new THREE.Vector3(0, 1, 0);
 const BONES = 4;
 const HEIGHT = 0.5;
 
+import * as THREE from 'three';
+import * as dat from 'dat.gui';
+import * as IK from 'three-ik';
+import  {TransformControls} from '/examples/node_modules/three/examples/jsm/controls/TransformControls.js';
+import  {OrbitControls} from '/examples/node_modules/three/examples/jsm/controls/OrbitControls.js';
 
-class IKApp {
+export class IKApp {
   constructor() {
     this.animate = this.animate.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -44,7 +49,7 @@ class IKApp {
       new THREE.PlaneGeometry(100, 100),
       new THREE.MeshPhongMaterial({ color: 0x555555 })
     );
-    this.mesh.rotation.x = - Math 2;
+    this.mesh.rotation.x = - Math.PI / 2;
     //this.mesh.receiveShadow = true;
     this.scene.add(this.mesh);
 
@@ -60,7 +65,7 @@ class IKApp {
     //this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     document.body.appendChild(this.renderer.domElement);
 
-    this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.update();
 
     this.gizmos = [];
@@ -85,7 +90,7 @@ class IKApp {
   }
 
   createTarget(position) {
-    const gizmo = new THREE.TransformControls(this.camera, this.renderer.domElement);
+    const gizmo = new TransformControls(this.camera, this.renderer.domElement);
     const target = new THREE.Object3D();
     gizmo.setSize(0.5);
     gizmo.attach(target);

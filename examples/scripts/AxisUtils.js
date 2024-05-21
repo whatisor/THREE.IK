@@ -7,6 +7,8 @@
  *
  **/
 
+import * as THREE from 'three';
+
 const t = new THREE.Vector3();
 const q = new THREE.Quaternion();
 const p = new THREE.Plane();
@@ -23,13 +25,13 @@ var RESETQUAT = new THREE.Quaternion();
 * @param {THREE.BONE} rootBone
 */
 
-function setZForward(rootBone) {
+export function setZForward(rootBone) {
   var worldPos = {};
   getOriginalWorldPositions(rootBone, worldPos);
   updateTransformations(rootBone, worldPos);
 }
 
-function updateTransformations(parentBone, worldPos) {
+export function updateTransformations(parentBone, worldPos) {
 
     var averagedDir = new THREE.Vector3();
     parentBone.children.forEach((childBone) => {
@@ -64,7 +66,7 @@ function updateTransformations(parentBone, worldPos) {
     })
 }
 
-function getAlignmentQuaternion(fromDir, toDir) {
+export function getAlignmentQuaternion(fromDir, toDir) {
   const adjustAxis = t.crossVectors(fromDir, toDir).normalize();
   const adjustAngle = fromDir.angleTo(toDir);
   if (adjustAngle) {
@@ -74,7 +76,7 @@ function getAlignmentQuaternion(fromDir, toDir) {
   return null;
 }
 
-function getOriginalWorldPositions(rootBone, worldPos) {
+export function getOriginalWorldPositions(rootBone, worldPos) {
   rootBone.children.forEach((child) => {
     var childWorldPos = child.getWorldPosition(new THREE.Vector3());
     worldPos[child.id] = childWorldPos;

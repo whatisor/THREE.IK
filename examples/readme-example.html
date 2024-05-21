@@ -11,18 +11,18 @@
             }
         </style>
     </head>
-
-    <body>
-        <script src="node_modules/dat.gui/build/dat.gui.js"></script>
-        <script src="node_modules/three/build/three.js"></script>
-        <script src="node_modules/three/examples/js/controls/TransformControls.js"></script>
-        <script src="node_modules/three/examples/js/controls/OrbitControls.js"></script>
-        <script src="scripts/IKApp.js"></script>
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "/examples/node_modules/three/build/three.module.js",
+            "dat.gui": "/examples/node_modules/dat.gui/build/dat.gui.module.js",
+            "three-ik": "/build/three-ik.module.js"
+          }
+        }
+    </script>
     </head>
 
   <body>
-        <script src="node_modules/three/build/three.js"></script>
-        <script src="../build/three-ik.js"></script>
-        <script src="scripts/readme-example.js"></script>
+        <script type="module" src="scripts/readme-example.js"></script>
   </body>
 </html>

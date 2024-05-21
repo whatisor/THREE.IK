@@ -1,7 +1,11 @@
 /**
  * This code example is used to provide correctness of example usage in README
  */
-    // Set up scene, camera, renderer
+
+import * as THREE from 'three';
+import * as IK from 'three-ik';
+
+  // Set up scene, camera, renderer
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100);
 camera.position.z = 5;
@@ -10,10 +14,10 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const ik = new THREE.IK();
+const ik = new IK.IK();
 
-const chain = new THREE.IKChain();
-const constraints = [new THREE.IKBallConstraint(90)];
+const chain = new IK.IKChain();
+const constraints = [new IK.IKBallConstraint(90)];
 const bones = [];
 
 // Create a target that the IK's effector will reach
@@ -35,7 +39,7 @@ for (let i = 0; i < 10; i++) {
 
   // The last IKJoint must be added with a `target` as an end effector.
   const target = i === 9 ? movingTarget : null;
-  chain.add(new THREE.IKJoint(bone, { constraints }), { target });
+  chain.add(new IK.IKJoint(bone, { constraints }), { target });
 }
 
 // Add the chain to the IK system
@@ -46,7 +50,7 @@ scene.add(ik.getRootBone());
 
 // Create a helper and add to the scene so we can visualize
 // the bones
-const helper = new THREE.IKHelper(ik);
+const helper = new IK.IKHelper(ik);
 scene.add(helper);
 
 function animate() {
