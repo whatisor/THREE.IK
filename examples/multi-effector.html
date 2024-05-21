@@ -58,9 +58,9 @@ class MultiEffector extends IKApp {
       const chain = new IK.IKChain();
       const constraint = new IK.IKBallConstraint(this.config.constraintAngle);
       const target = isRoot ? null : this.createTarget(new THREE.Vector3(
-        Math.cos(Math.PI * 0.5 * ((i - 1) % 4)),
+        Math.cos(Math 0.5 * ((i - 1) % 4)),
         ROOT_COUNT * DISTANCE * (i > 4 ? 1 : 0.5),
-        Math.sin(Math.PI * 0.5 * ((i - 1) % 4))
+        Math.sin(Math 0.5 * ((i - 1) % 4))
       ));
 
       if (isRoot) {
@@ -106,7 +106,7 @@ class MultiEffector extends IKApp {
     this.iks.push(ik);
 
     const pivot = new THREE.Object3D();
-    pivot.rotation.x = -Math.PI / 2;
+    pivot.rotation.x = -Math 2;
     pivot.add(ik.getRootBone());
     this.scene.add(pivot);
   }

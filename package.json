@@ -12,7 +12,7 @@
     "version": "npm run build && npm run build-demo && npm add src/* demo/* examples/*",
     "postversion": "git push && git push --tags && npm publish"
   },
-  "author": "Jordan Santell <jordan@jsantell.com>",
+  "author": "",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -35,6 +35,6 @@
   "peerDependencies": {
     "three": "*"
   },
-  "repository": "https://github.com/jsantell/THREE.IK",
+  "repository": "https://github.com/whatisor/THREE.IK",
   "dependencies": {}
 }

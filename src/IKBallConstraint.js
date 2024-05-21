@@ -1,8 +1,8 @@
-import { Vector3, Math as ThreeMath } from 'three';
+import { Vector3, MathUtils as ThreeMathUtils } from 'three';
 import { transformPoint, getCentroid, getWorldPosition, setQuaternionFromDirection } from './utils.js';
 
 const Z_AXIS = new Vector3(0, 0, 1);
-const { DEG2RAD, RAD2DEG } = ThreeMath;
+const { DEG2RAD, RAD2DEG } = ThreeMathUtils;
 
 /**
  * A class for a constraint.

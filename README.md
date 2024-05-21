@@ -105,6 +105,12 @@ Full API documentation can be found at https://jsantell.github.io/THREE.IK/docs.
 
 `$ npm run build`
 
+## Run demo
+
+You need to install http-server if not yet by npm install -g http-server
+
+http-server
+
 ## Logo
 
 The logo and artwork was created by [Caitlyn Crites](http://www.caitlyncrites.com).

@@ -22,12 +22,6 @@ export default {
     include: 'src/**',
   },
   plugins: [
-    babel({
-      plugins: ['external-helpers'],
-      exclude: 'node_modules/**',
-    }),
-    resolve(),
-    commonjs(),
-    cleanup(),
+    commonjs()
   ],
 };

@@ -44,7 +44,7 @@ class IKApp {
       new THREE.PlaneGeometry(100, 100),
       new THREE.MeshPhongMaterial({ color: 0x555555 })
     );
-    this.mesh.rotation.x = - Math.PI / 2;
+    this.mesh.rotation.x = - Math 2;
     //this.mesh.receiveShadow = true;
     this.scene.add(this.mesh);
 

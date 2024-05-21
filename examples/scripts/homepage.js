@@ -1,6 +1,7 @@
-const { Bone, Color, Scene, WebGLRenderer, PerspectiveCamera, MeshBasicMaterial, Object3D } = THREE;
-const { IK, IKChain, IKJoint, IKHelper, IKBallConstraint } = window.IK;
-
+import { IK, IKChain, IKJoint, IKHelper, IKBallConstraint } from 'three-ik';
+import { Bone, Color, Scene, WebGLRenderer, PerspectiveCamera, MeshBasicMaterial, Object3D, Vector3, Mesh,
+  CircleGeometry, AmbientLight } from 'three';
+import * as dat from 'dat.gui';
 const ARM_COUNT = 15;
 const SEGMENT_COUNT = 15;
 const SEGMENT_DISTANCE = 0.09;
@@ -30,8 +31,8 @@ class App {
     this.gui.add(this.config, 'constraintAngle').min(0).max(360).step(1);
 
     this.lastTick = 0;
-    this.mousePosition = new THREE.Vector3(0, 0, 0.4);
-    this._mouseVector = new THREE.Vector3();
+    this.mousePosition = new Vector3(0, 0, 0.4);
+    this._mouseVector = new Vector3();
 
     this.renderer = new WebGLRenderer();
     this.renderer.setPixelRatio(window.devicePixelRatio);
@@ -45,13 +46,13 @@ class App {
     this.scene = new Scene();
 
     this.target = new Object3D();
-    this.targetVisual = new THREE.Mesh(new THREE.CircleBufferGeometry(0.05, 32), new THREE.MeshBasicMaterial({
+    this.targetVisual = new Mesh(new CircleGeometry(0.05, 32), new MeshBasicMaterial({
       color: 0xffffff,
     }));
     this.target.add(this.targetVisual);
     this.scene.add(this.target);
 
-    //this.controls = new THREE.OrbitControls(this.camera);
+    //this.controls = new OrbitControls(this.camera);
 
     this.helpers = new Object3D();
     this.scene.add(this.helpers);
@@ -81,7 +82,7 @@ class App {
 
       const rootBone = ik.getRootBone();
       const base = new Object3D();
-      base.rotation.x = -Math.PI / 2;
+      base.rotation.x = -Math.sin(2);
       base.position.x = Math.sin(Math.PI * 2 * (i / ARM_COUNT)) * ARMS_RADIUS;
       base.position.y = Math.cos(Math.PI * 2 * (i / ARM_COUNT)) * ARMS_RADIUS;
       base.add(rootBone);
@@ -89,7 +90,7 @@ class App {
       this.iks.push(ik);
     }
 
-    this.scene.add(new THREE.AmbientLight(0xffffff));
+    this.scene.add(new AmbientLight(0xffffff));
 
     for (let ik of this.iks) {
       const helper = new IKHelper(ik, { boneSize: BONE_SIZE, showAxes: false });
