@@ -31,9 +31,9 @@
 <script type="importmap">
       {
         "imports": {
-          "three": "/examples/node_modules/three/build/three.module.js",
-          "dat.gui": "/examples/node_modules/dat.gui/build/dat.gui.module.js",
-          "three-ik": "/build/three-ik.module.js"
+          "three": "./node_modules/three/build/three.module.js",
+          "dat.gui": "./node_modules/dat.gui/build/dat.gui.module.js",
+          "three-ik": "../build/three-ik.module.js"
         }
       }
   </script>
@@ -42,8 +42,8 @@
   <script type="module">
     // Import module
     import * as THREE from 'three';
-    import { TransformControls } from '/examples/node_modules/three/examples/jsm/controls/TransformControls.js';
-    import { OrbitControls } from '/examples/node_modules/three/examples/jsm/controls/OrbitControls.js';
+    import { TransformControls } from './node_modules/three/examples/jsm/controls/TransformControls.js';
+    import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitControls.js';
     import { IKApp } from './scripts/IKApp.js';
     import * as IK from 'three-ik';
     import * as dat from 'dat.gui';

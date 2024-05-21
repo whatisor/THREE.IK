@@ -38,9 +38,9 @@
   <script type="importmap">
       {
         "imports": {
-          "three": "/examples/node_modules/three/build/three.module.js",
-          "dat.gui": "/examples/node_modules/dat.gui/build/dat.gui.module.js",
-          "three-ik": "/build/three-ik.module.js"
+          "three": "./node_modules/three/build/three.module.js",
+          "dat.gui": "./node_modules/dat.gui/build/dat.gui.module.js",
+          "three-ik": "../build/three-ik.module.js"
         }
       }
   </script>
@@ -49,9 +49,9 @@
     <script type="module">
       // Import module
       import * as THREE from 'three';
-      import { TransformControls } from '/examples/node_modules/three/examples/jsm/controls/TransformControls.js';
-      import { OrbitControls } from '/examples/node_modules/three/examples/jsm/controls/OrbitControls.js';
-      import { FBXLoader } from '/examples/node_modules/three/examples/jsm/loaders/FBXLoader.js';
+      import { TransformControls } from './node_modules/three/examples/jsm/controls/TransformControls.js';
+      import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitControls.js';
+      import { FBXLoader } from './node_modules/three/examples/jsm/loaders/FBXLoader.js';
       import { IKApp } from './scripts/IKApp.js';
       import {
         getOriginalWorldPositions, getAlignmentQuaternion,

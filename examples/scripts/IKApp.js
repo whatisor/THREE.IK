@@ -5,8 +5,8 @@ const HEIGHT = 0.5;
 import * as THREE from 'three';
 import * as dat from 'dat.gui';
 import * as IK from 'three-ik';
-import  {TransformControls} from '/examples/node_modules/three/examples/jsm/controls/TransformControls.js';
-import  {OrbitControls} from '/examples/node_modules/three/examples/jsm/controls/OrbitControls.js';
+import  {TransformControls} from '../node_modules/three/examples/jsm/controls/TransformControls.js';
+import  {OrbitControls} from '../node_modules/three/examples/jsm/controls/OrbitControls.js';
 
 export class IKApp {
   constructor() {
